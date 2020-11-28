@@ -16,7 +16,16 @@ form.addEventListener("submit", e => {
     scrollTo(0,0);
 
     const resultBar = document.querySelector(".result");
-    resultBar.querySelector("span").textContent = `${score}%`;
     resultBar.style.display = "inline";
+
+    i = 0;
+    const timer = setInterval(() => {
+        resultBar.querySelector("span").textContent = `${i}%`;
+        if(i === score){
+            clearInterval(timer);
+        } else {
+            i++;
+        }
+    }, 20);
 });
 
